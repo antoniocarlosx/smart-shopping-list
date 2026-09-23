@@ -1,0 +1,201 @@
+.navbar-header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  gap: 12px;
+}
+
+.nav-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.app-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.app-name {
+  font-family: var(--heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+/* ================= LINKS / BOTÕES DE NAVEGAÇÃO ================= */
+.nav-link-btn {
+  background: none;
+  border: none;
+  padding: 6px 12px;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--text);
+  cursor: pointer;
+  border-radius: 4px;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.nav-link-btn:hover {
+  color: var(--accent);
+  background-color: var(--accent-bg);
+}
+
+/* ================= BOTÃO DO CARRINHO ================= */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: var(--text);
+  border-radius: 6px;
+  transition: color 0.2s ease;
+}
+
+.cart-link:hover {
+  color: var(--accent);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  background-color: var(--secondary);
+  color: var(--surface);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+
+/* ================= HAMBÚRGUER (MOBILE) ================= */
+.menu-toggler {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--text-muted);
+  border-radius: 2px;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.menu-toggler.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggler.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggler.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ================= MENU GAVETA (MOBILE) ================= */
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.2rem;
+  z-index: 100;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list-item {
+  width: 100%;
+}
+
+/* ================= DESKTOP (768px+) ================= */
+@media (min-width: 768px) {
+  .navbar-header {
+    flex-wrap: nowrap;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .menu-toggler {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+    border-bottom: none;
+    width: auto;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-list-item {
+    width: auto;
+  }
+
+  .nav-link-btn {
+    width: auto;
+  }
+}
