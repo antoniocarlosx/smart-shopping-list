@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-title: #ffffff;
+  --text-body: #f0fdf4;
+  --text-muted: #dcfce7;
+
+  /* Botão em destaque alto (Laranja vibrante para contrastar com o verde) */
+  --btn-primary-bg: #ea580c;
+  --btn-primary-bg-hover: #c2410c;
+  --btn-primary-text: #ffffff;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  background-image:
+    linear-gradient(rgba(15, 23, 15, 0.8), rgba(20, 45, 25, 0.6)),
+    url("/supermercado.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  gap: 2rem;
+}
+
+.content-title {
+  color: var(--text-title);
+  font-size: clamp(1.5rem, 4vw, 2.2rem); /* Escala suavemente */
+  line-height: 1.2;
+}
+
+.title-emfase {
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: bold;
+  color: var(--text-muted);
+  display: block;
+}
+
+.content-subtitle {
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin: 1rem 0;
+}
+
+.subtitle-emfase {
+  color: var(--text-muted);
+}
+
+.content-description {
+  display: flex;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--text-muted);
+  width: 80%;
+  margin-bottom: 1rem;
+  
+  
+}
+
+.aboutus_container {
+  display: flex;
+
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.get-started-button {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  min-width: 160px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.get-started-button:hover {
+  background-color: var(--btn-primary-bg-hover);
+}

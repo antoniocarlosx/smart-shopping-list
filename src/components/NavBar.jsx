@@ -36,17 +36,17 @@ const NavBar = ({
         </div>
         <nav className={`nav-menu ${isOpen ? "active" : ""}`}>
           <ul className="nav-list">
-            {links?.map((link, index) => (
-              <li key={index} className="nav-list-item">
+            {links?.map((link) => (
+              <li key={link.target} className="nav-list-item">
                 <button
                   type="button"
                   className="nav-link-btn"
                   onClick={() => {
                     setIsOpen(false);
-                    onNavigate?.link;
+                    onNavigate?.(link.target);
                   }}
                 >
-                  {link}
+                  {link.label}
                 </button>
               </li>
             ))}
@@ -54,7 +54,7 @@ const NavBar = ({
         </nav>
         <div className="nav-actions">
           <div className="cart-link-container">
-            <button type="button" className="cart-link" onClick={()=> onNavigate?.("Minha Lista")}>
+            <button type="button" className="cart-link" onClick={()=> onNavigate?.("cart")}>
               <span className="cart">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

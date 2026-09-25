@@ -1,87 +1,94 @@
 :root {
-  /* Paleta adaptada ao tema de supermercado/hortifruti */
-  --text: #24301f;
-  --text-muted: #6b7a63;
-  --text-h: #172615;
-  --bg: #f7faf5;
-  --surface: #ffffff;
-  --border: #d8e6da;
-  --code-bg: #eef3ec;
+  /* ==========================================
+     1. PALETA BASE (Primitivas - Não use direto)
+     ========================================== */
+  --color-brand: #3f7d4f;
+  --color-brand-hover: #32643f;
+  --color-brand-light: #e6f4ea;
 
-  /* Cores de destaque (verde e laranja) */
-  --accent: #3f7d4f;
-  --accent-light: #e6f4ea;
-  --accent-bg: rgba(63, 125, 79, 0.1);
-  --accent-border: rgba(63, 125, 79, 0.4);
-  --secondary: #d98a3d;
+  --color-action: #d98a3d;
+  --color-action-hover: #be752e;
 
-  --shadow:
+  --color-gray-900: #172615;
+  --color-gray-700: #24301f;
+  --color-gray-500: #6b7a63;
+  --color-gray-300: #d8e6da;
+  --color-gray-200: #eef3ec;
+  --color-gray-100: #f7faf5;
+  --color-white: #ffffff;
+
+  --color-success: #2f9e44;
+  --color-disabled: #c9d4c9;
+
+  /* ==========================================
+     2. FUNDOS (Surfaces & Backgrounds)
+     ========================================== */
+  --bg-page: var(--color-gray-100); /* Fundo da tela inteira (body) */
+  --bg-card: var(--color-white); /* Fundo de cards, itens da lista, modais */
+  --bg-subtle: var(
+    --color-gray-200
+  ); /* Fundo de campos de código, tags neutras */
+
+  /* ==========================================
+     3. TEXTOS (Tipografia)
+     ========================================== */
+  --text-title: var(--color-gray-900); /* Títulos principais (h1, h2, h3) */
+  --text-body: var(--color-gray-700); /* Texto corrido, nomes de produtos */
+  --text-muted: var(
+    --color-gray-500
+  ); /* Subtítulos, valores secundários, placeholders */
+  --text-inverse: var(--color-white); /* Texto em cima de botões escuros */
+
+  /* ==========================================
+     4. BOTÕES (Ações do usuário)
+     ========================================== */
+  /* Botão Primário (Adicionar, Salvar, Finalizar) */
+  --btn-primary-bg: var(--color-brand);
+  --btn-primary-bg-hover: var(--color-brand-hover);
+  --btn-primary-text: var(--color-white);
+
+  /* Botão Secundário / Ação rápida (Ex: Modo Compras, Alerta) */
+  --btn-secondary-bg: var(--color-action);
+  --btn-secondary-bg-hover: var(--color-action-hover);
+  --btn-secondary-text: var(--color-white);
+
+  /* Botão Sutil / Fantasma (Ex: Cancelar, Limpar lista) */
+  --btn-ghost-bg: var(--color-brand-light);
+  --btn-ghost-text: var(--color-brand);
+
+  /* Botão / Item Desabilitado */
+  --btn-disabled-bg: var(--color-disabled);
+  --btn-disabled-text: var(--color-gray-500);
+
+  /* ==========================================
+     5. BORDAS & DIVISORES
+     ========================================== */
+  --border-subtle: var(
+    --color-gray-300
+  ); /* Bordas de cards, inputs, linhas divisórias */
+  --border-focus: var(--color-brand); /* Borda quando clica no input */
+
+  /* ==========================================
+     6. ESTADOS ESPECÍFICOS (Modo Mercado / Carrinho)
+     ========================================== */
+  --status-checked-bg: #e9f7ee;
+  --status-checked-text: var(--color-success);
+
+  /* ==========================================
+     7. ESTRUTURA E TIPOGRAFIA
+     ========================================== */
+  --font-main: "Poppins", system-ui, sans-serif;
+  --shadow-card:
     rgba(36, 48, 31, 0.08) 0 10px 15px -3px,
     rgba(36, 48, 31, 0.04) 0 4px 6px -2px;
 
-  --sans:
-    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --heading:
-    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --text-h-rgb: 23, 38, 21;
 
-  font: 16px/150% var(--sans);
-  color-scheme: light;
-  color: var(--text);
-  background-color: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --accent-rgb: 63, 125, 79;
 }
 
 body {
-  margin: 0;
-  background-color: var(--bg);
-  color: var(--text);
-}
-
-#root {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 0 16px;
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--heading);
-  font-weight: 700;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 32px;
-  line-height: 120%;
-  margin: 24px 0 16px;
-}
-
-h2 {
-  font-size: 22px;
-  line-height: 125%;
-  margin: 0 0 12px;
-}
-
-p {
-  margin: 0;
-}
-
-code {
-  font-family: var(--mono);
-  font-size: 14px;
-  line-height: 135%;
-  padding: 3px 6px;
-  background-color: var(--code-bg);
-  border-radius: 4px;
-  color: var(--text-h);
+  font-family: var(--font-main);
+  background-color: var(--bg-page);
+  color: var(--text-body);
 }

@@ -6,7 +6,7 @@ export const cartSlice = createSlice({
         items: []
     },
     reducers: {
-        '': ''
+        
     }
 
 });
