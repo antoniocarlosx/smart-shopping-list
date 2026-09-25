@@ -5,9 +5,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 1.2rem;
-  background-color: var(--surface);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  background-color: var(--color-brand);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
   gap: 12px;
 }
 
@@ -31,10 +31,14 @@
 }
 
 .app-name {
-  font-family: var(--heading);
+  font-family: var(--font-main);
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text-h);
+  color: var(--text-title);
+}
+
+.app-name:hover{
+  color: var( --color-gray-300);
 }
 
 /* ================= LINKS / BOTÕES DE NAVEGAÇÃO ================= */
@@ -42,9 +46,9 @@
   background: none;
   border: none;
   padding: 6px 12px;
-  font-family: var(--sans);
+  font-family: var(--font-main);
   font-size: 0.95rem;
-  color: var(--text);
+  color: var(--text-body);
   cursor: pointer;
   border-radius: 4px;
   transition:
@@ -55,8 +59,8 @@
 }
 
 .nav-link-btn:hover {
-  color: var(--accent);
-  background-color: var(--accent-bg);
+  color: var(--color-brand);
+  background-color: var(--color-brand-light);
 }
 
 /* ================= BOTÃO DO CARRINHO ================= */
@@ -64,6 +68,12 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.cart-link-container{
+  position: relative;
+  display: inline-flex;
+  
 }
 
 .cart-link {
@@ -75,27 +85,28 @@
   border: none;
   cursor: pointer;
   padding: 6px;
-  color: var(--text);
+  color: var(--text-body);
   border-radius: 6px;
   transition: color 0.2s ease;
 }
 
 .cart-link:hover {
-  color: var(--accent);
+  color: var(--color-brand);
 }
 
 .cart-badge {
   position: absolute;
-  top: -2px;
-  right: -4px;
-  background-color: var(--secondary);
-  color: var(--surface);
-  font-family: var(--mono);
+  top: -2;
+  right: 0;
+  background-color: var(--color-action);
+  color: var(--text-inverse);
+  font-family: var(--font-main);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 1px 6px;
   border-radius: 999px;
   line-height: 1.2;
+  
 }
 
 /* ================= HAMBÚRGUER (MOBILE) ================= */
@@ -139,9 +150,9 @@
   top: 100%;
   left: 0;
   right: 0;
-  background-color: var(--surface);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
   padding: 1rem 1.2rem;
   z-index: 100;
 }

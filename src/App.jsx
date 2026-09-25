@@ -11,7 +11,7 @@ function App() {
       <main>
         {!showHub && <LandingPage onGetStarted={() => setShowHub(true)} />}
 
-        {showHub && <Hub />}
+        {showHub && <Hub onGoHome={() => setShowHub(false)}/>}
           
       </main>
     </>
