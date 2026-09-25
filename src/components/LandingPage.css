@@ -5,14 +5,7 @@
 }
 
 :root {
-  --text-title: #ffffff;
-  --text-body: #f0fdf4;
-  --text-muted: #dcfce7;
-
-  /* Botão em destaque alto (Laranja vibrante para contrastar com o verde) */
-  --btn-primary-bg: #ea580c;
-  --btn-primary-bg-hover: #c2410c;
-  --btn-primary-text: #ffffff;
+  
 }
 
 .landing-page {
@@ -53,7 +46,7 @@
 }
 
 .content-title {
-  color: var(--text-title);
+  color: var(--text-title-landing);
   font-size: clamp(1.5rem, 4vw, 2.2rem); /* Escala suavemente */
   line-height: 1.2;
 }
@@ -61,7 +54,7 @@
 .title-emfase {
   font-size: clamp(2rem, 6vw, 3.2rem);
   font-weight: bold;
-  color: var(--text-muted);
+  color: var(--text-muted-landing);
   display: block;
 }
 
@@ -72,7 +65,7 @@
 }
 
 .subtitle-emfase {
-  color: var(--text-muted);
+  color: var(--text-muted-landing);
 }
 
 .content-description {
@@ -81,7 +74,7 @@
   font-weight: 500;
   line-height: 1.5;
   text-align: left;
-  color: var(--text-muted);
+  color: var(--text-muted-landing);
   width: 80%;
   margin-bottom: 1rem;
   
@@ -102,8 +95,8 @@
 }
 
 .get-started-button {
-  background-color: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
+  background-color: var(--btn-primary-bg-landing);
+  color: var(--btn-primary-text-landing);
   min-width: 160px;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -115,5 +108,5 @@
 }
 
 .get-started-button:hover {
-  background-color: var(--btn-primary-bg-hover);
+  background-color: var(--btn-primary-bg-hover-landing);
 }

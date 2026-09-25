@@ -1,6 +1,6 @@
 :root {
   /* ==========================================
-     1. PALETA BASE (Primitivas - Não use direto)
+     1. PALETA BASE (Primitivas)
      ========================================== */
   --color-brand: #3f7d4f;
   --color-brand-hover: #32643f;
@@ -9,86 +9,107 @@
   --color-action: #d98a3d;
   --color-action-hover: #be752e;
 
-  --color-gray-900: #172615;
-  --color-gray-700: #24301f;
-  --color-gray-500: #6b7a63;
-  --color-gray-300: #d8e6da;
+  /* Escala de cinzas/tons escuros ajustada para alto contraste */
+  --color-gray-900: #111a0f;
+  --color-gray-700: #1f2d1c;
+  --color-gray-500: #55634e;
+  --color-gray-200: #d8e6da;
   --color-gray-200: #eef3ec;
   --color-gray-100: #f7faf5;
   --color-white: #ffffff;
 
   --color-success: #2f9e44;
   --color-disabled: #c9d4c9;
+  /*LANDING PAGE*/
+
+  --text-title-landing: #ffffff;
+  --text-body-landing: #f0fdf4;
+  --text-muted-landing: #dcfce7;
+
+  /* Botão em destaque alto (Laranja vibrante para contrastar com o verde) */
+  --btn-primary-bg-landing: #ea580c;
+  --btn-primary-bg-hover-landing: #c2410c;
+  --btn-primary-text-landing: #ffffff;
+  /* ==========================================
+     2. FUNDOS
+     ========================================== */
+  --bg-page: var(--color-gray-100);
+  --bg-card: var(--color-white);
+  --bg-subtle: var(--color-gray-200);
 
   /* ==========================================
-     2. FUNDOS (Surfaces & Backgrounds)
+     3. TEXTOS SEMÂNTICOS
      ========================================== */
-  --bg-page: var(--color-gray-100); /* Fundo da tela inteira (body) */
-  --bg-card: var(--color-white); /* Fundo de cards, itens da lista, modais */
-  --bg-subtle: var(
-    --color-gray-200
-  ); /* Fundo de campos de código, tags neutras */
+  --text-title: var(--color-gray-900);
+  --text-body: var(--color-gray-700);
+  --text-muted: var(--color-gray-500);
+  --text-inverse: var(--color-white);
+  --text-nav: var(--color-gray-100);
+  --text-nav-hover: var(--color-gray-200);
 
   /* ==========================================
-     3. TEXTOS (Tipografia)
+     4. BOTÕES
      ========================================== */
-  --text-title: var(--color-gray-900); /* Títulos principais (h1, h2, h3) */
-  --text-body: var(--color-gray-700); /* Texto corrido, nomes de produtos */
-  --text-muted: var(
-    --color-gray-500
-  ); /* Subtítulos, valores secundários, placeholders */
-  --text-inverse: var(--color-white); /* Texto em cima de botões escuros */
-
-  /* ==========================================
-     4. BOTÕES (Ações do usuário)
-     ========================================== */
-  /* Botão Primário (Adicionar, Salvar, Finalizar) */
   --btn-primary-bg: var(--color-brand);
   --btn-primary-bg-hover: var(--color-brand-hover);
   --btn-primary-text: var(--color-white);
 
-  /* Botão Secundário / Ação rápida (Ex: Modo Compras, Alerta) */
   --btn-secondary-bg: var(--color-action);
   --btn-secondary-bg-hover: var(--color-action-hover);
   --btn-secondary-text: var(--color-white);
 
-  /* Botão Sutil / Fantasma (Ex: Cancelar, Limpar lista) */
   --btn-ghost-bg: var(--color-brand-light);
   --btn-ghost-text: var(--color-brand);
 
-  /* Botão / Item Desabilitado */
   --btn-disabled-bg: var(--color-disabled);
   --btn-disabled-text: var(--color-gray-500);
 
   /* ==========================================
-     5. BORDAS & DIVISORES
+     5. BORDAS
      ========================================== */
-  --border-subtle: var(
-    --color-gray-300
-  ); /* Bordas de cards, inputs, linhas divisórias */
-  --border-focus: var(--color-brand); /* Borda quando clica no input */
+  --border-subtle: var(--color-gray-300);
+  --border-focus: var(--color-brand);
 
   /* ==========================================
-     6. ESTADOS ESPECÍFICOS (Modo Mercado / Carrinho)
+     6. ESTADOS
      ========================================== */
   --status-checked-bg: #e9f7ee;
   --status-checked-text: var(--color-success);
 
   /* ==========================================
-     7. ESTRUTURA E TIPOGRAFIA
+     7. ESTRUTURA
      ========================================== */
   --font-main: "Poppins", system-ui, sans-serif;
   --shadow-card:
     rgba(36, 48, 31, 0.08) 0 10px 15px -3px,
     rgba(36, 48, 31, 0.04) 0 4px 6px -2px;
+}
 
-  --text-h-rgb: 23, 38, 21;
-
-  --accent-rgb: 63, 125, 79;
+/* Força o esquema de cores para claro e aplica a herança */
+:root {
+  color-scheme: light;
 }
 
 body {
+  margin: 0;
   font-family: var(--font-main);
   background-color: var(--bg-page);
   color: var(--text-body);
+}
+
+/* Garante que títulos e links não herdem estilos ocultos/brancos do boilerplate */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-title);
+}
+
+p,
+span,
+label,
+input {
+  color: inherit;
 }

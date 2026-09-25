@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import NavBar from "./NavBar";
-import "./Hub.css";
 import { useSelector } from "react-redux";
+
+import NavBar from "./NavBar";
+import Catalog from "./Catalog";
+import Cart from "./Cart";
+
+import "./Hub.css";
 
 const Hub = ({ onGoHome }) => {
   const [view, setView] = useState("catalog");
@@ -9,6 +13,7 @@ const Hub = ({ onGoHome }) => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleNavigate = (destino) => {
+    console.log("cliquei em:", destino);
     if (destino === "home") {
       onGoHome();
     } else {
@@ -21,6 +26,8 @@ const Hub = ({ onGoHome }) => {
     { label: "Minha Lista", target: "cart" },
   ];
 
+  console.log("view atual:", view);
+
   return (
     <>
       <NavBar
@@ -28,8 +35,10 @@ const Hub = ({ onGoHome }) => {
         appName={"Seu Mercadão"}
         cartCount={totalItems}
         onNavigate={handleNavigate}
-
       />
+
+      {view === "catalog" && <Catalog />}
+      {view === "cart" && <Cart onContinueShopping={handleNavigate} />}
     </>
   );
 };
