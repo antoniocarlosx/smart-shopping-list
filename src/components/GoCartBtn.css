@@ -1,0 +1,45 @@
+.iconbutton {
+  margin: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.iconbutton svg {
+  width: 24px;
+  height: 24px;
+}
+
+#go-cart svg path {
+  fill: var(--accent);
+}
+
+#go-cart:hover svg path {
+  fill: var(--bg-main);
+}
+
+.cart-link-container{
+  display: flex;
+  gap: 0px;
+}
+
+
+.number-itens{
+  position: absolute;
+  top: -2;
+  right: 0;
+  background-color: var(--color-action);
+  color: var(--text-inverse);
+  font-family: var(--font-main);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  line-height: 1.2;
+}

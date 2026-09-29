@@ -2,12 +2,13 @@ import React from "react";
 import "./Catalog.css";
 
 import ProductCard from "./ProductCard";
-
+import GoCartBtn from "./GoCartBtn";
+import GoHomeBtn from "./GoHomeBtn";
 import { addItem } from "../features/cartSlice";
 import catalogItems from "../data/items.json";
 import { useDispatch, useSelector } from "react-redux";
 
-const Catalog = () => {
+const Catalog = ({ onNavigate }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
@@ -24,6 +25,14 @@ const Catalog = () => {
     groups[productCategory].push(item);
     return groups;
   }, {});
+
+  const handleCartClick = () => {
+    onNavigate("cart");
+  };
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -54,6 +63,11 @@ const Catalog = () => {
             </section>
           );
         })}
+
+        <div className="fixed-btns">
+          <GoHomeBtn onClick={handleScrollToTop} />
+          <GoCartBtn onAction={handleCartClick} inCart={cartItems.length} />
+        </div>
       </main>
     </>
   );

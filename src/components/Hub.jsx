@@ -14,7 +14,6 @@ const Hub = ({ onGoHome }) => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleNavigate = (destino) => {
-    console.log("cliquei em:", destino);
     if (destino === "home") {
       onGoHome();
     } else {
@@ -23,11 +22,10 @@ const Hub = ({ onGoHome }) => {
   };
 
   const links = [
+   
     { label: "Itens", target: "catalog" },
     { label: "Minha Lista", target: "cart" },
   ];
-
-  console.log("view atual:", view);
 
   return (
     <>
@@ -38,7 +36,7 @@ const Hub = ({ onGoHome }) => {
         onNavigate={handleNavigate}
       />
 
-      {view === "catalog" && <Catalog />}
+      {view === "catalog" && <Catalog onNavigate={handleNavigate} />}
       {view === "cart" && <Cart onContinueShopping={handleNavigate} />}
     </>
   );
