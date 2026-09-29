@@ -27,7 +27,7 @@ const Catalog = () => {
 
   return (
     <>
-      <h2>Catalogo de Produtos</h2>
+      <h2 className="page-title">Catalogo de Produtos</h2>
       <main className="main-container">
         {Object.entries(grupedByCategory).map(([category, itemsCategory]) => {
           const sectionId = category.toLowerCase().replace(/\s+/g, "-");

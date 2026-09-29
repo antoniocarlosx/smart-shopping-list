@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+.page-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
 .section-container {
   display: flex;
   flex-direction: column;

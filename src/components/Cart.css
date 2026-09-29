@@ -31,6 +31,9 @@
   align-items: center;
 }
 
+.total-value-container{
+text-align: center;
+}
 .total-picked-container {
   display: flex;
   gap: 20px;
@@ -41,6 +44,7 @@
 .total-picked-container h2,
 .total-picked-container span {
   color: var(--text-muted);
+  text-align: center;
 }
 
 .picked-itens {
@@ -222,4 +226,6 @@
   .action-btn {
     font-size: 15px;
   }
+
+
 }
