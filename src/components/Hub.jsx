@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import cartReducer from "../features/cartSlice";
 
 import NavBar from "./NavBar";
 import Catalog from "./Catalog";
