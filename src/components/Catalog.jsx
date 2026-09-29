@@ -15,7 +15,7 @@ const Catalog = () => {
     dispatch(addItem(item));
   };
 
-  const groupedByCategory = catalogItems.reduce((groups, item) => {
+  const grupedByCategory = catalogItems.reduce((groups, item) => {
     const productCategory = item.category;
 
     if (!groups[productCategory]) {
@@ -29,7 +29,7 @@ const Catalog = () => {
     <>
       <h2 className="page-title">Catalogo de Produtos</h2>
       <main className="main-container">
-        {Object.entries(groupedByCategory).map(([category, itemsCategory]) => {
+        {Object.entries(grupedByCategory).map(([category, itemsCategory]) => {
           const sectionId = category.toLowerCase().replace(/\s+/g, "-");
 
           return (
