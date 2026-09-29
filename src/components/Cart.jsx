@@ -45,6 +45,10 @@ const Cart = ({ onContinueShopping }) => {
     return totalCostItem;
   };
 
+  const handleContinueShopping = () => {
+    onContinueShopping("catalog");
+  };
+
   return (
     <>
       <main className="cart-container">
@@ -155,7 +159,12 @@ const Cart = ({ onContinueShopping }) => {
         </div>
 
         <div className="continue_shopping_btn">
-          <button className="get-started-button">Adicionar Itens</button>
+          <button
+            onClick={handleContinueShopping}
+            className="get-started-button"
+          >
+            Adicionar Itens
+          </button>
           {cartItems && cartItems.length > 0 ? (
             <button className="shopping-btn">Finalizar Compra</button>
           ) : (
