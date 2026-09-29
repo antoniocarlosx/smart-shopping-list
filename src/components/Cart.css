@@ -140,15 +140,16 @@ text-align: center;
 }
 
 .quantity {
-  padding: 3px;
-  font-size: 0.75rem;
-  background-color: var(--bg-subtle);
+  
+  padding:  0 15px;
+  font-size: 1rem;
+  background-color: white;
 }
 
 .action-btn {
   background-color: var(--btn-primary-bg);
   border: none;
-  padding: 3px 5px;
+  padding: 3px 10px;
   font-size: 0.75rem;
   border-radius: 3px;
   font-weight: bold;
@@ -259,9 +260,9 @@ text-align: center;
   }
 
   .quantity {
-    padding: 3px;
+    
     font-size: 15px;
-    background-color: white;
+    
   }
 
   .action-btn {

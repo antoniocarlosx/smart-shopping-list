@@ -67,7 +67,7 @@ const Cart = ({ onContinueShopping }) => {
                 {" "}
                 <div className="divider"></div>
                 <div className="picked-itens">
-                  <h2>Total dos Itens Pegos</h2>
+                  <h2>Total Simulado</h2>
                   <span className="total-value">
                     R$ {totalPickedAmount.toFixed(2).replace(".", ",")}
                   </span>{" "}
@@ -90,13 +90,7 @@ const Cart = ({ onContinueShopping }) => {
                 <p className="cart-item-name">{item.name}</p>
               </div>
               <div className="details-container">
-                <div className="checkbox-container">
-                  <input
-                    type="checkbox"
-                    checked={item.picked || false}
-                    onChange={() => handleTogglePickItem(item.id)}
-                  />
-                </div>
+                
                 <div className="controls-row">
                   <div className="unity-container">
                     <span className="label">
@@ -166,7 +160,7 @@ const Cart = ({ onContinueShopping }) => {
             Adicionar Itens
           </button>
           {cartItems && cartItems.length > 0 ? (
-            <button className="shopping-btn">Finalizar Compra</button>
+            <button className="shopping-btn">Ativar Modo Compra</button>
           ) : (
             <span></span>
           )}
