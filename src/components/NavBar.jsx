@@ -11,18 +11,10 @@ const NavBar = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-
-  
   return (
     <>
       <header className="navbar-header">
         <div className="nav-title">
-          <div className="title-container" onClick={() => onNavigate?.("home")}>
-            {iconLink && (
-              <img className="app-icon" src={iconLink} alt={appName} />
-            )}
-            <span className="app-name">{appName}</span>
-          </div>
           <button
             type="button"
             className={`menu-toggler ${isOpen ? "active" : ""}`}
@@ -33,6 +25,13 @@ const NavBar = ({
             <span className="hamburger-line" />
             <span className="hamburger-line" />
           </button>
+
+          <div className="title-container" onClick={() => onNavigate?.("home")}>
+            {iconLink && (
+              <img className="app-icon" src={iconLink} alt={appName} />
+            )}
+            <span className="app-name">{appName}</span>
+          </div>
         </div>
         <nav className={`nav-menu ${isOpen ? "active" : ""}`}>
           <ul className="nav-list">
@@ -54,7 +53,11 @@ const NavBar = ({
         </nav>
         <div className="nav-actions">
           <div className="cart-link-container">
-            <button type="button" className="cart-link" onClick={()=> onNavigate?.("cart")}>
+            <button
+              type="button"
+              className="cart-link"
+              onClick={() => onNavigate?.("cart")}
+            >
               <span className="cart">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
