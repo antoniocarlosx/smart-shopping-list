@@ -64,6 +64,10 @@ export const cartSlice = createSlice({
         removeProductById(state, productDecremented.id);
       }
     },
+
+    clearCart: (state) => {
+      state.items = [];
+    },
   },
 });
 
@@ -73,5 +77,6 @@ export const {
   togglePickItem,
   incrementItem,
   decrementItem,
+  clearCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;

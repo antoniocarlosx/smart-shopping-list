@@ -212,8 +212,8 @@ text-align: center;
 
 .continue_shopping_btn .get-started-button,
 .shopping-btn {
-  width: 100%;
-  max-width: 280px;
+  
+  width: 200px;
   padding: 10px 14px;
   font-size: 0.95rem;
   font-weight: 600;
@@ -231,6 +231,12 @@ text-align: center;
 
 .shopping-btn:hover {
   background-color: var(--btn-primary-bg-hover);
+}
+
+.button-cart{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 @media (min-width: 768px) {
   .cart-item-card {

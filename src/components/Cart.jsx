@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./Cart.css";
 import {
   removeItem,
-  togglePickItem,
+  clearCart,
   incrementItem,
   decrementItem,
 } from "../features/cartSlice";
+import ShoppingMode from "./ShoppingMode";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,13 +15,18 @@ const Cart = ({ onContinueShopping }) => {
 
   const cartItems = useSelector((state) => state.cart.items);
 
-  const pickedItems = cartItems.filter((item) => item.picked);
-  const handleRemoveItem = (item) => {
-    dispatch(removeItem(item));
+  const handleClearCart = () => {
+    const confirmClear = window.confirm(
+      "Tem certeza de que deseja limpar toda a lista?",
+    );
+
+    if (confirmClear) {
+      dispatch(clearCart());
+    }
   };
 
-  const handleTogglePickItem = (item) => {
-    dispatch(togglePickItem(item));
+  const handleRemoveItem = (item) => {
+    dispatch(removeItem(item));
   };
 
   const handleIncrementItem = (item) => {
@@ -34,12 +40,6 @@ const Cart = ({ onContinueShopping }) => {
   const calculateTotalAmount = (items) => {
     return items.reduce((total, item) => total + item.cost * item.quantity, 0);
   };
-
-  const totalPickedAmount = pickedItems.reduce(
-    (total, item) => total + item.cost * item.quantity,
-    0,
-  );
-
   const calculateItemTotalCost = (item) => {
     const totalCostItem = item.cost * item.quantity;
     return totalCostItem;
@@ -48,6 +48,12 @@ const Cart = ({ onContinueShopping }) => {
   const handleContinueShopping = () => {
     onContinueShopping("catalog");
   };
+
+  const [isShoppingMode, setIsShoppingMode] = useState(false);
+
+  if (isShoppingMode) {
+    return <ShoppingMode onExit={() => setIsShoppingMode(false)} />;
+  }
 
   return (
     <>
@@ -61,21 +67,6 @@ const Cart = ({ onContinueShopping }) => {
                 {calculateTotalAmount(cartItems).toFixed(2).replace(".", ",")}
               </span>
             </div>
-
-            {pickedItems && pickedItems.length > 0 ? (
-              <div className="total-picked-container">
-                {" "}
-                <div className="divider"></div>
-                <div className="picked-itens">
-                  <h2>Total Simulado</h2>
-                  <span className="total-value">
-                    R$ {totalPickedAmount.toFixed(2).replace(".", ",")}
-                  </span>{" "}
-                </div>
-              </div>
-            ) : (
-              <span></span>
-            )}
           </div>
         ) : (
           <div className="cart-header">
@@ -90,7 +81,6 @@ const Cart = ({ onContinueShopping }) => {
                 <p className="cart-item-name">{item.name}</p>
               </div>
               <div className="details-container">
-                
                 <div className="controls-row">
                   <div className="unity-container">
                     <span className="label">
@@ -160,7 +150,17 @@ const Cart = ({ onContinueShopping }) => {
             Adicionar Itens
           </button>
           {cartItems && cartItems.length > 0 ? (
-            <button className="shopping-btn">Ativar Modo Compra</button>
+            <div className="button-cart">
+              <button
+                onClick={() => setIsShoppingMode(true)}
+                className="shopping-btn"
+              >
+                Ativar Modo Compras
+              </button>
+              <button onClick={handleClearCart} className="get-started-button">
+                Limpar Lista
+              </button>
+            </div>
           ) : (
             <span></span>
           )}
