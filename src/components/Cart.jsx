@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./Cart.css";
 import {
   removeItem,
-  togglePickItem,
   incrementItem,
   decrementItem,
 } from "../features/cartSlice";
+import ShoppingMode from "./ShoppingMode";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,14 +14,11 @@ const Cart = ({ onContinueShopping }) => {
 
   const cartItems = useSelector((state) => state.cart.items);
 
-  const pickedItems = cartItems.filter((item) => item.picked);
   const handleRemoveItem = (item) => {
     dispatch(removeItem(item));
   };
 
-  const handleTogglePickItem = (item) => {
-    dispatch(togglePickItem(item));
-  };
+  const [isShoppingMode, setIsShoppingMode] = useState(false);
 
   const handleIncrementItem = (item) => {
     dispatch(incrementItem(item));
@@ -35,11 +32,6 @@ const Cart = ({ onContinueShopping }) => {
     return items.reduce((total, item) => total + item.cost * item.quantity, 0);
   };
 
-  const totalPickedAmount = pickedItems.reduce(
-    (total, item) => total + item.cost * item.quantity,
-    0,
-  );
-
   const calculateItemTotalCost = (item) => {
     const totalCostItem = item.cost * item.quantity;
     return totalCostItem;
@@ -48,6 +40,10 @@ const Cart = ({ onContinueShopping }) => {
   const handleContinueShopping = () => {
     onContinueShopping("catalog");
   };
+
+  if (isShoppingMode) {
+    return <ShoppingMode onExit={() => setIsShoppingMode(false)} />;
+  }
 
   return (
     <>
@@ -61,21 +57,6 @@ const Cart = ({ onContinueShopping }) => {
                 {calculateTotalAmount(cartItems).toFixed(2).replace(".", ",")}
               </span>
             </div>
-
-            {pickedItems && pickedItems.length > 0 ? (
-              <div className="total-picked-container">
-                {" "}
-                <div className="divider"></div>
-                <div className="picked-itens">
-                  <h2>Total Simulado</h2>
-                  <span className="total-value">
-                    R$ {totalPickedAmount.toFixed(2).replace(".", ",")}
-                  </span>{" "}
-                </div>
-              </div>
-            ) : (
-              <span></span>
-            )}
           </div>
         ) : (
           <div className="cart-header">
@@ -90,7 +71,6 @@ const Cart = ({ onContinueShopping }) => {
                 <p className="cart-item-name">{item.name}</p>
               </div>
               <div className="details-container">
-                
                 <div className="controls-row">
                   <div className="unity-container">
                     <span className="label">
@@ -104,14 +84,14 @@ const Cart = ({ onContinueShopping }) => {
                     <span className="label">QTD</span>
                     <div className="quantity-box">
                       <button
-                        onClick={() => handleDecrementItem(item)}
+                        onClick={() => handleDecrementItem(item.id)}
                         className="action-btn"
                       >
                         -
                       </button>
                       <span className="quantity">{item.quantity}</span>
                       <button
-                        onClick={() => handleIncrementItem(item)}
+                        onClick={() => handleIncrementItem(item.id)}
                         className="action-btn"
                       >
                         +
@@ -160,7 +140,12 @@ const Cart = ({ onContinueShopping }) => {
             Adicionar Itens
           </button>
           {cartItems && cartItems.length > 0 ? (
-            <button className="shopping-btn">Ativar Modo Compra</button>
+            <button
+              onClick={() => setIsShoppingMode(true)}
+              className="shopping-btn"
+            >
+              Ativar Modo Compra
+            </button>
           ) : (
             <span></span>
           )}
