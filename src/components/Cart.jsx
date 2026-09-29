@@ -153,6 +153,15 @@ const Cart = ({ onContinueShopping }) => {
             </div>
           ))}
         </div>
+
+        <div className="continue_shopping_btn">
+          <button className="get-started-button">Adicionar Itens</button>
+          {cartItems && cartItems.length > 0 ? (
+            <button className="shopping-btn">Finalizar Compra</button>
+          ) : (
+            <span></span>
+          )}
+        </div>
       </main>
     </>
   );
