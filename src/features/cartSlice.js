@@ -35,7 +35,7 @@ export const cartSlice = createSlice({
 
     togglePickItem: (state, action) => {
       const itemId = action.payload;
-       const item = findItemById(state, itemId);
+      const item = findItemById(state, itemId);
       if (item) {
         item.picked = !item.picked;
       }
@@ -51,9 +51,27 @@ export const cartSlice = createSlice({
 
       item.quantity++;
     },
+
+    decrementItem: (state, action) => {
+      const productDecremented = action.payload;
+      const item = findItemById(state, productDecremented.id);
+
+      if (!productDecremented) return;
+
+      if (item.quantity > 1) {
+        item.quantity--;
+      } else {
+        removeProductById(state, productDecremented.id);
+      }
+    },
   },
 });
 
-export const { addItem, removeItem, togglePickItem, incrementItem } =
-  cartSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  togglePickItem,
+  incrementItem,
+  decrementItem,
+} = cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "./Cart.css";
-import { removeItem, togglePickItem, incrementItem } from "../features/cartSlice";
+import {
+  removeItem,
+  togglePickItem,
+  incrementItem,
+  decrementItem,
+} from "../features/cartSlice";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -19,8 +24,12 @@ const Cart = ({ onContinueShopping }) => {
   };
 
   const handleIncrementItem = (item) => {
-    dispatch(incrementItem(item))
-  }
+    dispatch(incrementItem(item));
+  };
+
+  const handleDecrementItem = (item) => {
+    dispatch(decrementItem(item));
+  };
 
   const calculateTotalAmount = (items) => {
     return items.reduce((total, item) => total + item.cost * item.quantity, 0);
@@ -96,9 +105,19 @@ const Cart = ({ onContinueShopping }) => {
                   <div className="quantity-container">
                     <span className="label">QTD</span>
                     <div className="quantity-box">
-                      <button className="action-btn">-</button>
+                      <button
+                        onClick={() => handleDecrementItem(item)}
+                        className="action-btn"
+                      >
+                        -
+                      </button>
                       <span className="quantity">{item.quantity}</span>
-                      <button onClick={() => handleIncrementItem(item)} className="action-btn">+</button>
+                      <button
+                        onClick={() => handleIncrementItem(item)}
+                        className="action-btn"
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
 
